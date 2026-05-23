@@ -7,7 +7,7 @@ interface IvyTransitionProps {
 export const IvyTransition: React.FC<IvyTransitionProps> = ({ className = '' }) => {
   return (
     <div
-      className={`absolute left-0 w-full h-screen z-5 pointer-events-none ${className}`}
+      className={`absolute left-0 w-full h-dvh z-5 pointer-events-none ${className}`}
       style={{
         top: '100vh',
         transform: 'translateY(-45%)',

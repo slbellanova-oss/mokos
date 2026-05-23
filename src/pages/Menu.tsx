@@ -117,7 +117,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="menu-tabs-container flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-hide sticky top-24 z-50"
+                className="menu-tabs-container flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-hide sticky top-16 sm:top-24 z-50"
               >
                 {menuCategories.map((cat) => (
                   <motion.button

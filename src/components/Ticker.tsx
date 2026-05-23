@@ -26,7 +26,7 @@ export const Ticker = () => {
   ];
 
   return (
-    <div className={`fixed bottom-2 left-0 right-0 transition-opacity duration-300 z-40 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`fixed bottom-2 left-0 right-0 transition-opacity duration-300 z-40 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className="bg-black/40 backdrop-blur-md rounded-2xl mx-8 px-6 py-4 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...bonuses, ...bonuses].map((bonus, index) => (

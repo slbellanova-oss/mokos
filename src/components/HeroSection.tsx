@@ -29,18 +29,20 @@ export const HeroSection = ({ scrollProgress }: HeroSectionProps) => {
       </video>
       <main className={`absolute bottom-28 left-8 z-30 flex flex-col pointer-events-none px-4 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div className="absolute left-0 -inset-x-4 -inset-y-6 bg-black/40 backdrop-blur-lg rounded-2xl -z-10"></div>
-        <h1 className="animate-fade-rise text-8xl sm:text-9xl md:text-[10rem] leading-[0.95] tracking-[-2.46px] text-white">
+        <h1 className="animate-fade-rise text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.95] tracking-[-2.46px] text-white">
           Мако́шь
         </h1>
-        <p className="animate-fade-rise-delay text-white text-3xl sm:text-4xl max-w-2xl mt-4 leading-relaxed">
+        
+        <p className="animate-fade-rise-delay text-white text-2xl sm:text-3xl md:text-4xl max-w-2xl mt-4 leading-relaxed">
           своя история на тарелке
         </p>
-        <div className="flex items-center gap-4 pointer-events-auto mt-8">
-          <button className="animate-fade-rise-delay-2 liquid-glass rounded-full px-14 py-5 text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer">
+        
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 pointer-events-auto mt-6 sm:mt-8">
+          <button className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap w-full sm:w-auto">
             Заказать
           </button>
           <button 
-            className="animate-fade-rise-delay-2 liquid-glass rounded-full px-14 py-5 text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer"
+            className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap w-full sm:w-auto"
             onClick={() => window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' })}
           >
             Меню

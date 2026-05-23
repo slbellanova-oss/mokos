@@ -103,7 +103,7 @@ export const CheckoutModal: React.FC = () => {
               <h3 className="text-2xl font-bold text-white">Ваш заказ</h3>
               <button onClick={closeCheckout} className="text-3xl hover:opacity-70 transition-opacity" style={{ color: '#fb9201' }}>×</button>
             </div>
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            <div className="flex-1 overflow-y-auto p-4 pb-[120px] space-y-3">
               {items.length === 0 ? null : (
                 items.map(item => (
                   <div key={item.id} className="flex items-center gap-4 p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.05)' }}>
@@ -137,14 +137,11 @@ export const CheckoutModal: React.FC = () => {
           /* Шаг 2: Оформление */
           <div className="flex-1 flex flex-col" style={{ background: 'linear-gradient(180deg, #1C1517 0%, #101216 100%)' }}>
             <div className="flex justify-between items-center p-6 border-b border-white/10">
-              <button onClick={() => setStep('cart')} className="text-xl" style={{ color: '#fb9201' }}>← Назад</button>
-              <div className="flex items-center">
-                <button onClick={() => setStep('cart')} className="mr-2 text-2xl" style={{ color: '#fb9201' }}>←</button>
-                <h3 className="text-2xl font-bold" style={{ color: '#fb9201' }}>Оформление</h3>
-              </div>
+              <button onClick={() => setStep('cart')} className="text-xl flex items-center gap-1" style={{ color: '#fb9201' }}>← Назад</button>
+              <h3 className="text-2xl font-bold" style={{ color: '#fb9201' }}>Оформление</h3>
               <button onClick={closeCheckout} className="text-3xl hover:opacity-70 transition-opacity" style={{ color: '#fb9201' }}>×</button>
             </div>
-            <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            <div className="flex-1 overflow-y-auto p-6 pb-[140px] space-y-4">
               <div className="flex justify-between items-center text-xl font-bold">
                 <span style={{ color: '#fb9201' }}>Итого:</span>
                 <span style={{ color: '#fb9201' }}>{total}₽</span>

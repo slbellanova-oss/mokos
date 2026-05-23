@@ -56,7 +56,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         
         <div className="flex justify-between items-center mt-auto">
           <span 
-            className="text-2xl font-bold transition-colors duration-300"
+            className="text-xl sm:text-2xl font-bold transition-colors duration-300"
             style={{ color: quantity > 0 ? '#fb9201' : '#ffffff', fontFamily: 'PT Sans, sans-serif' }}
           >
             {quantity > 0 ? `${item.price * quantity}₽` : `${item.price}₽`}
@@ -84,13 +84,13 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                   style={{
                     background: 'rgba(251,146,1,0.2)',
                     color: '#fb9201',
-                    width: 36,
-                    height: 36,
+                    width: 44,
+                    height: 44,
                   }}
                 >
                   <Minus className="w-5 h-5" />
                 </button>
-                <span className="counter-value text-center font-bold text-lg text-[#fb9201]" style={{ width: 32 }}>
+                <span className="counter-value text-center font-bold text-lg text-[#fb9201] min-w-[32px]">
                   {quantity}
                 </span>
                 <button 
@@ -99,8 +99,8 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                   style={{
                     background: '#fb9201',
                     color: '#000',
-                    width: 36,
-                    height: 36,
+                    width: 44,
+                    height: 44,
                   }}
                 >
                   <Plus className="w-5 h-5" />
