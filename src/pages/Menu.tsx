@@ -126,7 +126,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
 
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-            <div className="md:w-56 flex-shrink-0 sticky top-[70px] md:top-[100px] z-40 self-start w-full bg-[#1C1517] md:bg-transparent">
+            <div className="md:w-56 flex-shrink-0 sticky top-[88px] md:top-[100px] z-40 self-start w-full">
               <motion.div
                 variants={tabsContainer}
                 initial="hidden"
@@ -141,7 +141,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
                     data-tab-id={cat.id}
                     variants={tabItem}
                     onClick={() => scrollToSection(cat.id)}
-                    className={`whitespace-nowrap text-left text-sm md:text-lg py-[10px] md:py-3 px-4 md:px-6 transition-all duration-300 rounded-full border border-white/10 flex-shrink-0 ${
+                    className={`whitespace-nowrap text-left text-base lg:text-lg py-3 px-4 lg:px-6 transition-all duration-300 rounded-full border border-white/10 flex-shrink-0 ${
                       activeTab === cat.id
                         ? 'bg-[#fb9201]/80 text-black shadow-lg'
                         : 'bg-black/40 backdrop-blur-md text-white hover:bg-white/10'
