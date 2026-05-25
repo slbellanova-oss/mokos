@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Ticker = () => {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => setVisible(window.scrollY === 0);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const bonuses = [
     "🌟 Скидка 10% на первый заказ",
     "☕ Кофе в подарок при заказе от 500₽",
@@ -11,7 +20,7 @@ export const Ticker = () => {
   ];
 
   return (
-    <div className="fixed bottom-2 left-0 right-0 z-40">
+    <div className={`fixed bottom-2 left-0 right-0 z-40 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className="bg-black/40 backdrop-blur-md rounded-2xl mx-8 px-6 py-4 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...bonuses, ...bonuses].map((bonus, index) => (
