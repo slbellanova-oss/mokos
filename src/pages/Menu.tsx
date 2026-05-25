@@ -156,7 +156,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
 
             <div className="flex-1">
               {menuCategories.map((category) => (
-                <section key={category.id} id={`menu-${category.id}`} className="menu-section mb-16 scroll-mt-32">
+                <section key={category.id} id={`menu-${category.id}`} className="menu-section mb-16 scroll-mt-36">
                   <h2 className="text-2xl md:text-3xl font-bold text-white mb-6" style={{ fontFamily: 'PT Sans, sans-serif' }}>{category.name}</h2>
                   <motion.div
                     variants={container}
