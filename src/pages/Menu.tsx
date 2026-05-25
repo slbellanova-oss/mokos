@@ -55,17 +55,13 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
           const id = visible[0].target.id.replace('menu-', '');
           setActiveTab(id);
 
-          const container = tabsRef.current;
-          if (container) {
-            const tabEl = container.querySelector<HTMLElement>(`[data-tab-id="${id}"]`);
-            if (tabEl) {
-              const scrollLeft = tabEl.offsetLeft + tabEl.offsetWidth / 2 - container.offsetWidth / 2;
-              container.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
-            }
+          const tabEl = document.querySelector<HTMLElement>(`[data-tab-id="${id}"]`);
+          if (tabEl && window.innerWidth < 768) {
+            tabEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
           }
         }
       },
-      { rootMargin: '-100px 0px -60% 0px' }
+      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
     );
 
     sections.forEach(el => observer.observe(el));
@@ -78,6 +74,10 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
     const element = document.getElementById(`menu-${id}`);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const tabEl = document.querySelector<HTMLElement>(`[data-tab-id="${id}"]`);
+      if (tabEl && window.innerWidth < 768) {
+        tabEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
       setTimeout(() => { isManualScrolling.current = false; }, 800);
     } else {
       isManualScrolling.current = false;
@@ -125,15 +125,15 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
         </div>
 
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            <div className="lg:w-56 flex-shrink-0 sticky top-[88px] md:top-[100px] z-40 self-start">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+            <div className="md:w-56 flex-shrink-0 sticky top-[70px] md:top-[100px] z-40 self-start w-full bg-[#1C1517] md:bg-transparent">
               <motion.div
                 variants={tabsContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
                 ref={tabsRef}
-                className="menu-tabs-container flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 scrollbar-hide"
+                className="menu-tabs-container flex md:flex-col gap-2 md:gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 scrollbar-hide"
               >
                 {menuCategories.map((cat) => (
                   <motion.button
@@ -141,7 +141,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
                     data-tab-id={cat.id}
                     variants={tabItem}
                     onClick={() => scrollToSection(cat.id)}
-                    className={`whitespace-nowrap text-left text-base lg:text-lg py-3 px-4 lg:px-6 transition-all duration-300 rounded-full border border-white/10 flex-shrink-0 ${
+                    className={`whitespace-nowrap text-left text-sm md:text-lg py-[10px] md:py-3 px-4 md:px-6 transition-all duration-300 rounded-full border border-white/10 flex-shrink-0 ${
                       activeTab === cat.id
                         ? 'bg-[#fb9201]/80 text-black shadow-lg'
                         : 'bg-black/40 backdrop-blur-md text-white hover:bg-white/10'
