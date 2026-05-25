@@ -10,7 +10,7 @@ export const IvyTransition: React.FC<IvyTransitionProps> = ({ className = '' }) 
       className={`absolute left-0 w-full h-dvh z-5 pointer-events-none ${className}`}
       style={{
         top: '100vh',
-        transform: 'translateY(-45%)',
+        transform: 'translateY(-55%)',
       }}
     >
       <img

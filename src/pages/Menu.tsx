@@ -11,7 +11,7 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.05 },
   },
 };
 
@@ -162,7 +162,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
                     variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.05 }}
                     className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6"
                   >
                     {category.items.map((menuItem) => (
