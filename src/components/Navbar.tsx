@@ -58,6 +58,16 @@ export const Navbar: React.FC<NavbarProps> = ({ items }) => {
 
       {mobileMenuOpen && (
         <div className="fixed inset-x-0 top-[72px] bottom-0 z-40 bg-black/70 backdrop-blur-xl px-6 md:hidden">
+          <button
+            className="absolute top-6 right-6 p-2 text-foreground z-10"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Закрыть меню"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
           <div className="flex flex-col space-y-6 pt-6">
             {items.map((item) => (
               <a
