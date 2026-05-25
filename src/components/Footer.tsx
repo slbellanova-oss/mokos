@@ -17,7 +17,7 @@ export const Footer = ({ scrollProgress }: FooterProps) => {
         </div>
         <div className="flex gap-4 md:gap-6 flex-wrap justify-center">
           <Link to="/about" className="hover:text-[#fb9201] active:text-[#fb9201] transition-colors">О нас</Link>
-          <a href="/#nashe-menu" className="hover:text-[#fb9201] active:text-[#fb9201] transition-colors">Меню</a>
+          <Link to="/#nashe-menu" className="hover:text-[#fb9201] active:text-[#fb9201] transition-colors">Меню</Link>
           <Link to="/contacts" className="hover:text-[#fb9201] active:text-[#fb9201] transition-colors">Контакты</Link>
         </div>
         <div>

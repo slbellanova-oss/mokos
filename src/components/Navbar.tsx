@@ -25,9 +25,9 @@ export const Navbar: React.FC<NavbarProps> = ({ items }) => {
 
         <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
           {items.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.href}
               onClick={item.onClick}
               className={`text-base lg:text-lg transition-colors hover:text-foreground group relative ${
                 item.isActive ? 'text-foreground' : 'text-muted-foreground'
@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ items }) => {
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#fb9201] transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -69,9 +69,9 @@ export const Navbar: React.FC<NavbarProps> = ({ items }) => {
           </button>
           <div className="flex flex-col space-y-6 pt-6">
             {items.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 onClick={(e) => {
                   if (item.onClick) item.onClick(e);
                   setMobileMenuOpen(false);
@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ items }) => {
                 className="text-2xl text-foreground"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
