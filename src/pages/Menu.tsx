@@ -65,7 +65,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
           }
         }
       },
-      { rootMargin: '-80px 0px -60% 0px' }
+      { rootMargin: '-100px 0px -60% 0px' }
     );
 
     sections.forEach(el => observer.observe(el));
@@ -126,14 +126,14 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
 
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            <div className="lg:w-56 flex-shrink-0">
+            <div className="lg:w-56 flex-shrink-0 sticky top-[88px] md:top-[100px] z-40 self-start">
               <motion.div
                 variants={tabsContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
                 ref={tabsRef}
-                className="menu-tabs-container flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 scrollbar-hide sticky top-[80px] z-50"
+                className="menu-tabs-container flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 scrollbar-hide"
               >
                 {menuCategories.map((cat) => (
                   <motion.button
