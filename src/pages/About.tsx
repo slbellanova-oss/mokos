@@ -12,10 +12,16 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans flex flex-col">
+    <div className="relative min-h-screen bg-background text-foreground font-sans flex flex-col overflow-hidden">
+      <video className="fixed inset-0 w-full h-full object-cover" autoPlay muted playsInline>
+        <source src="/pomidoro menu.mp4" type="video/mp4" media="(min-width: 768px)" />
+        <source src="/pomidoro menu_mobile.webm" type="video/webm" media="(max-width: 767px)" />
+      </video>
+      <div className="fixed inset-0 bg-black/60" />
+      
       <Navbar items={navItems} />
       
-      <main className="pt-24 md:pt-32 px-4 flex flex-col items-center flex-1">
+      <main className="relative z-10 pt-24 md:pt-32 px-4 flex flex-col items-center flex-1">
         <h1 className="text-4xl md:text-6xl text-white mb-8 text-center" style={{ fontFamily: 'Cakra, sans-serif' }}>О нас</h1>
         <div className="w-full max-w-4xl space-y-8 text-white/80 text-lg">
           <p className="text-center md:text-left">Макошь — это место, где традиции встречаются с современностью. Мы создаём блюда, которые рассказывают свою историю.</p>
