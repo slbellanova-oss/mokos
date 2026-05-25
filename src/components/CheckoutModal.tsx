@@ -83,7 +83,6 @@ export const CheckoutModal: React.FC = () => {
       setAddress('');
       setComment('');
       setPhone('');
-      // Закрываем оформление
       closeCheckout();
     }
   };
@@ -94,10 +93,8 @@ export const CheckoutModal: React.FC = () => {
     <div className="fixed inset-0 z-[70]" onClick={closeCheckout}>
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
       
-      {/* Мобильная версия - два шага */}
       <div className="absolute inset-0 md:hidden flex flex-col" onClick={e => e.stopPropagation()}>
         {step === 'cart' ? (
-          /* Шаг 1: Ваш заказ */
           <div className="flex-1 flex flex-col" style={{ background: 'linear-gradient(180deg, #1C1517 0%, #101216 100%)' }}>
             <div className="flex justify-between items-center p-6 border-b border-white/10">
               <h3 className="text-2xl font-bold text-white">Ваш заказ</h3>
@@ -134,7 +131,6 @@ export const CheckoutModal: React.FC = () => {
             )}
           </div>
         ) : (
-          /* Шаг 2: Оформление */
           <div className="flex-1 flex flex-col" style={{ background: 'linear-gradient(180deg, #1C1517 0%, #101216 100%)' }}>
             <div className="flex justify-between items-center p-6 border-b border-white/10">
               <button onClick={() => setStep('cart')} className="text-xl flex items-center gap-1" style={{ color: '#fb9201' }}>← Назад</button>
@@ -202,12 +198,9 @@ export const CheckoutModal: React.FC = () => {
         )}
       </div>
       
-      {/* ПК версия - две панели рядом */}
       <div className="hidden md:flex absolute right-0 top-0 h-full w-full max-w-md flex-col" onClick={e => e.stopPropagation()}>
-        {/* Корзина с формой - справа */}
         <div className="flex-1 overflow-hidden bg-black/40 backdrop-blur-lg border-l border-white/10">
           <div className="flex justify-between items-center p-6 border-b border-white/10">
-            {/* Стрелка назад — закрывает оформление и открывает корзину */}
             <button onClick={backToCart} className="p-2 hover:bg-muted rounded-full transition-colors cursor-pointer mr-2">
               <ArrowLeft className="w-5 h-5" style={{ color: '#fb9201' }} />
             </button>

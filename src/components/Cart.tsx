@@ -34,7 +34,6 @@ export const CartDrawer = () => {
       <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white/5 backdrop-blur-xl p-6 flex flex-col border-l border-white/10">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl text-[#fb9201]">Корзина</h2>
-          {/* Крестик — просто закрывает корзину */}
           <button onClick={toggleCart} className="p-2 hover:bg-muted rounded-full transition-colors cursor-pointer">
             <X className="w-5 h-5" />
           </button>
@@ -42,7 +41,6 @@ export const CartDrawer = () => {
 
         {items.length === 0 ? (
           <div className="flex-1 flex items-center justify-center text-muted-foreground">
-            {/* Плашка «Пусто» – круглая, по центру, без растягивания */}
             <div className="bg-black/40 backdrop-blur-lg rounded-full p-8 border border-white/10 text-center">
               <p className="text-2xl">Пусто</p>
             </div>

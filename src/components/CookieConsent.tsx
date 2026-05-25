@@ -6,7 +6,6 @@ export const CookieConsent = () => {
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      // Если плашка уже есть в DOM — не дублируем
       if (!document.querySelector('[data-cookie-banner]')) {
         setVisible(true);
       }

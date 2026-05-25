@@ -7,10 +7,8 @@ export const Ticker = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      // Hide instantly when any scroll occurs
       setVisible(currentY === 0);
     };
-    // Set initial state
     handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);

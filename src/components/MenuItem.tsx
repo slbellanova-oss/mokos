@@ -27,7 +27,6 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
 
   return (
     <div className="bg-black/40 backdrop-blur-lg rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group h-full flex flex-col">
-      {/* Изображение */}
       <div className="relative overflow-hidden aspect-[4/3]">
         <img 
           src={item.image} 
@@ -39,7 +38,6 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         </div>
       </div>
       
-      {/* Контент с увеличенными шрифтами */}
       <div className="p-4 flex flex-col min-h-[180px] flex-1">
         <h4
           className="text-xl font-semibold text-white mb-2"

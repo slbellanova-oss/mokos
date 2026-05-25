@@ -30,7 +30,6 @@ export default function App() {
       <div className="relative min-h-screen bg-background text-foreground font-sans flex flex-col">
         <Scrollytelling scrollProgress={scrollProgress} />
 
-        {/* Navigation */}
         <nav className="fixed top-0 left-0 w-full z-50 flex flex-row justify-between items-center px-8 py-6 bg-background/80 backdrop-blur-md font-menu">
           <div className="flex h-full items-center">
             <Link to="/" className="site-logo text-3xl tracking-tight" onClick={() => window.scrollTo(0, 0)}>Мако́шь</Link>
@@ -95,7 +94,6 @@ export default function App() {
           </div>
         )}
 
-        {/* Hero Section */}
         <main className="fixed bottom-20 left-8 z-10 flex flex-col pointer-events-none p-4">
           <div className="absolute -inset-4 bg-black/40 backdrop-blur-md rounded-2xl -z-10"></div>
           <h1
@@ -118,7 +116,6 @@ export default function App() {
           </div>
         </main>
 
-        {/* About Section */}
         <div 
           className="fixed top-1/2 right-8 -translate-y-1/2 z-20 bg-black/40 backdrop-blur-md rounded-2xl p-8 max-w-sm"
         >

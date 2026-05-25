@@ -35,24 +35,41 @@ const tabItem = {
 
 export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
   const [activeTab, setActiveTab] = useState('pizza');
-  const OFFSET = 160;
+  const tabsRef = useRef<HTMLDivElement>(null);
   const isManualScrolling = useRef(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (isManualScrolling.current) return;
-      const sections = tabIds.map(id => document.getElementById(`menu-${id}`));
-      const scrollY = window.scrollY + OFFSET;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollY) {
-          setActiveTab(tabIds[i]);
-          break;
+    const sections = tabIds
+      .map(id => document.getElementById(`menu-${id}`))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isManualScrolling.current) return;
+
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible.length > 0) {
+          const id = visible[0].target.id.replace('menu-', '');
+          setActiveTab(id);
+
+          const container = tabsRef.current;
+          if (container) {
+            const tabEl = container.querySelector<HTMLElement>(`[data-tab-id="${id}"]`);
+            if (tabEl) {
+              const scrollLeft = tabEl.offsetLeft + tabEl.offsetWidth / 2 - container.offsetWidth / 2;
+              container.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
+            }
+          }
         }
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+      },
+      { rootMargin: '-80px 0px -60% 0px' }
+    );
+
+    sections.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -91,7 +108,6 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
       {!hideHeader && <Navbar items={navItems} />}
 
       <div className="relative z-10 pt-28 pb-20">
-        {/* Заголовок с блюром */}
         <div className="flex justify-center mb-12 px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -110,21 +126,22 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
 
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            {/* Вкладки категорий */}
             <div className="lg:w-56 flex-shrink-0">
               <motion.div
                 variants={tabsContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="menu-tabs-container flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-hide sticky top-16 sm:top-24 z-50"
+                ref={tabsRef}
+                className="menu-tabs-container flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 scrollbar-hide sticky top-[80px] z-50"
               >
                 {menuCategories.map((cat) => (
                   <motion.button
                     key={cat.id}
+                    data-tab-id={cat.id}
                     variants={tabItem}
                     onClick={() => scrollToSection(cat.id)}
-                    className={`whitespace-nowrap text-left text-base lg:text-lg py-3 px-4 lg:px-6 transition-all duration-300 rounded-full border border-white/10 ${
+                    className={`whitespace-nowrap text-left text-base lg:text-lg py-3 px-4 lg:px-6 transition-all duration-300 rounded-full border border-white/10 flex-shrink-0 ${
                       activeTab === cat.id
                         ? 'bg-[#fb9201]/80 text-black shadow-lg'
                         : 'bg-black/40 backdrop-blur-md text-white hover:bg-white/10'
@@ -137,7 +154,6 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
               </motion.div>
             </div>
 
-            {/* Карточки блюд */}
             <div className="flex-1">
               {menuCategories.map((category) => (
                 <section key={category.id} id={`menu-${category.id}`} className="menu-section mb-16 scroll-mt-32">
