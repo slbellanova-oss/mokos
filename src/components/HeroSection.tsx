@@ -27,7 +27,7 @@ export const HeroSection = ({ scrollProgress }: HeroSectionProps) => {
         <source src="/animate hero.mp4" type="video/mp4" media="(min-width: 768px)" />
         <source src="/animate hero_mobile.webm" type="video/webm" media="(max-width: 767px)" />
       </video>
-        <main className={`absolute bottom-48 md:bottom-28 inset-x-0 z-30 flex flex-col items-center text-center pointer-events-none px-4 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <main className={`absolute bottom-48 md:bottom-28 left-8 z-30 flex flex-col pointer-events-none px-4 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div className="absolute left-0 -inset-x-4 -inset-y-6 bg-black/40 backdrop-blur-lg rounded-2xl -z-10"></div>
         <h1 className="animate-fade-rise text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.95] tracking-[-2.46px] text-white">
           Мако́шь
