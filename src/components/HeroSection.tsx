@@ -43,7 +43,10 @@ export const HeroSection = ({ scrollProgress }: HeroSectionProps) => {
           </a>
           <button 
             className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap w-full sm:w-auto"
-            onClick={() => window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' })}
+            onClick={() => {
+              const el = document.getElementById('nashe-menu');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
           >
             Меню
           </button>
