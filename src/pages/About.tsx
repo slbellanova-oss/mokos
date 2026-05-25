@@ -14,8 +14,8 @@ export default function About() {
   return (
     <div className="relative min-h-screen bg-background text-foreground font-sans flex flex-col overflow-hidden">
       <video className="fixed inset-0 w-full h-full object-cover" autoPlay muted playsInline>
-        <source src="/pomidoro menu.mp4" type="video/mp4" media="(min-width: 768px)" />
-        <source src="/pomidoro menu_mobile.webm" type="video/webm" media="(max-width: 767px)" />
+        <source src="/pomidoro-menu.mp4" type="video/mp4" media="(min-width: 768px)" />
+        <source src="/pomidoro-menu-mobile.webm" type="video/webm" media="(max-width: 767px)" />
       </video>
       <div className="fixed inset-0 bg-black/60" />
       
