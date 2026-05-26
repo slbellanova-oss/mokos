@@ -17,8 +17,6 @@ export default function About() {
         <source src="/pomidoro-menu.mp4" type="video/mp4" media="(min-width: 768px)" />
         <source src="/pomidoro-menu-mobile.webm" type="video/webm" media="(max-width: 767px)" />
       </video>
-      <div className="fixed inset-0 bg-black/60" />
-      
       <Navbar items={navItems} />
       
       <main className="relative z-10 pt-24 md:pt-32 px-4 flex flex-col items-center flex-1">
