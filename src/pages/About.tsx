@@ -22,7 +22,7 @@ export default function About() {
       </video>
       <Navbar items={navItems} />
       
-      <main className="relative z-10 pt-24 md:pt-32 px-4 flex flex-col items-center flex-1 pb-20 md:pb-28">
+      <main className="relative z-10 pt-24 md:pt-32 px-4 flex flex-col items-center flex-1 pb-32 md:pb-40">
         <h1 className="text-4xl md:text-6xl text-white mb-8 text-center" style={{ fontFamily: 'Cakra, sans-serif' }}>О нас</h1>
         <div className="w-full max-w-4xl space-y-6 text-white/80 text-xl md:text-2xl">
           <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-fade-rise">
