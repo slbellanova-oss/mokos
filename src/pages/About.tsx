@@ -42,7 +42,7 @@ export default function About() {
         <div className="w-full max-w-4xl flex justify-end mt-auto pt-8">
           <button
             onClick={() => { setOverlayOpen(true); setShowSecond(false); }}
-            className="liquid-glass rounded-full w-16 h-16 flex items-center justify-center text-white text-lg hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer shadow-lg"
+            className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap"
             style={{ fontFamily: 'Cakra, sans-serif' }}
           >
             Жми
