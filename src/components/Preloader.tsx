@@ -53,7 +53,7 @@ export const Preloader = ({ onFinish }: { onFinish: () => void }) => {
         }}
       >
         <h1 className="text-6xl md:text-8xl lg:text-9xl text-white tracking-wider">
-          МА&#769;КОШЬ
+          МАКО&#769;ШЬ
         </h1>
         <p className="text-lg md:text-xl text-white/70 mt-4 md:mt-6 tracking-widest uppercase">
           Вкус, объединяющий времена
