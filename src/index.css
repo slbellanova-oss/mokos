@@ -186,6 +186,11 @@
   width: 100%;
 }
 
+@keyframes preloader-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 @keyframes cart-shake {
   0%, 100% { transform: rotate(0deg) scale(1); }
   15% { transform: rotate(-12deg) scale(1.1); }

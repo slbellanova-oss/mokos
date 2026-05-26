@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-const bg = {
-  backgroundColor: '#47784e',
-  backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/preloader.jpeg')`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundAttachment: 'fixed',
-};
-
 const PANELS = [
-  { clip: 'polygon(0 0, 100% 0, 100% 38%, 0 30%)', slide: -1, delay: 1 },
-  { clip: 'polygon(0 30%, 100% 38%, 100% 72%, 0 64%)', slide: -1, delay: 2 },
-  { clip: 'polygon(0 64%, 100% 72%, 100% 100%, 0 100%)', slide: 1, delay: 3 },
+  { clip: 'polygon(0 0, 100% 0, 100% 48%, 0 18%)', slide: -1, delay: 1 },
+  { clip: 'polygon(0 18%, 100% 48%, 100% 82%, 0 52%)', slide: -1, delay: 2 },
+  { clip: 'polygon(0 52%, 100% 82%, 100% 100%, 0 100%)', slide: 1, delay: 3 },
 ];
 
 export const Preloader = ({ onFinish }: { onFinish: () => void }) => {
@@ -32,15 +24,25 @@ export const Preloader = ({ onFinish }: { onFinish: () => void }) => {
       {PANELS.map((p, i) => (
         <div
           key={i}
-          className="absolute inset-0 transition-transform duration-[800ms] ease-in-out"
+          className="absolute inset-0 overflow-hidden transition-transform duration-[800ms] ease-in-out"
           style={{
-            ...bg,
             clipPath: p.clip,
             transform: stage >= p.delay
               ? `translateY(${p.slide * 110}%)`
               : 'translateY(0)',
           }}
-        />
+        >
+          <div
+            className="absolute w-[200%] h-[200%] top-[-50%] left-[-50%]"
+            style={{
+              backgroundImage: `url('/preloader.jpeg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              animation: 'preloader-spin 20s linear infinite',
+            }}
+          />
+          <div className="absolute inset-0 bg-black/35" />
+        </div>
       ))}
 
       <div
