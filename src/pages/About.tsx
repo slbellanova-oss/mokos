@@ -23,7 +23,7 @@ export default function About() {
         <h1 className="text-4xl md:text-6xl text-white mb-8 text-center" style={{ fontFamily: 'Cakra, sans-serif' }}>О нас</h1>
         <div className="w-full max-w-4xl space-y-6 text-white/80 text-xl md:text-2xl">
           <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10">
-            <p className="text-center md:text-left"><strong className="text-white" style={{ fontFamily: 'Cakra, sans-serif' }}>Макошь</strong> — это место, где традиции встречаются с современностью. Мы создаём блюда, которые рассказывают свою историю.</p>
+            <p className="text-center md:text-left"><strong className="text-white" style={{ fontFamily: 'Cakra, sans-serif' }}>Мако&#769;шь</strong> — это место, где традиции встречаются с современностью. Мы создаём блюда, которые рассказывают свою историю.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10">
