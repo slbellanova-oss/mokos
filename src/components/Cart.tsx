@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { animate } from 'motion';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from './CartContext';
 
 export const CartButton = () => {
   const { items, toggleCart } = useCart();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+  const [prevTotal, setPrevTotal] = useState(totalItems);
+  const btnRef = React.useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (totalItems > prevTotal && btnRef.current) {
+      animate(
+        btnRef.current,
+        {
+          rotate: [0, -10, 10, -7, 7, -4, 4, 0],
+          scale: [1, 1.12, 1.12, 1.08, 1.08, 1.04, 1.04, 1],
+        },
+        { duration: 0.6, ease: 'easeInOut' }
+      );
+    }
+    setPrevTotal(totalItems);
+  }, [totalItems]);
 
   return (
     <div className="relative flex items-center">
       <button
+        ref={btnRef}
         onClick={toggleCart}
         className="p-3 liquid-glass rounded-full hover:scale-[1.03] hover:bg-[#fb9201] transition-all duration-300 cursor-pointer group"
       >
