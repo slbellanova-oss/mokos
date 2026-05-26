@@ -46,7 +46,7 @@ export default function About() {
 
       <button
         onClick={() => { setOverlayOpen(true); setShowSecond(false); }}
-        className="fixed bottom-8 left-8 z-[300] liquid-glass rounded-full w-16 h-16 flex items-center justify-center text-white text-lg hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer shadow-lg"
+        className="fixed bottom-8 right-8 z-[300] liquid-glass rounded-full w-16 h-16 flex items-center justify-center text-white text-lg hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer shadow-lg"
         style={{ fontFamily: 'Cakra, sans-serif' }}
       >
         Жми
