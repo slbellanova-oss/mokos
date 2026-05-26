@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
-const bg = (pos: string) => ({
+const bg = {
   backgroundColor: '#47784e',
   backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/preloader.jpeg')`,
-  backgroundSize: '100% 300%',
-  backgroundPosition: `50% ${pos}`,
-});
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundAttachment: 'fixed',
+};
+
+const PANELS = [
+  { clip: 'polygon(0 0, 100% 0, 100% 38%, 0 30%)', slide: -1, delay: 1 },
+  { clip: 'polygon(0 30%, 100% 38%, 100% 72%, 0 64%)', slide: -1, delay: 2 },
+  { clip: 'polygon(0 64%, 100% 72%, 100% 100%, 0 100%)', slide: 1, delay: 3 },
+];
 
 export const Preloader = ({ onFinish }: { onFinish: () => void }) => {
   const [stage, setStage] = useState(0);
@@ -22,27 +29,19 @@ export const Preloader = ({ onFinish }: { onFinish: () => void }) => {
 
   return (
     <div className="fixed inset-0 z-[9999] overflow-hidden pointer-events-none">
-      <div
-        className="absolute inset-x-0 top-0 h-1/3 transition-transform duration-[800ms] ease-in-out"
-        style={{
-          ...bg('0%'),
-          transform: stage >= 1 ? 'translateY(-100%)' : 'translateY(0)',
-        }}
-      />
-      <div
-        className="absolute inset-x-0 top-1/3 h-1/3 transition-transform duration-[800ms] ease-in-out"
-        style={{
-          ...bg('50%'),
-          transform: stage >= 2 ? 'translateY(-100%)' : 'translateY(0)',
-        }}
-      />
-      <div
-        className="absolute inset-x-0 top-2/3 h-1/3 transition-transform duration-[800ms] ease-in-out"
-        style={{
-          ...bg('100%'),
-          transform: stage >= 3 ? 'translateY(100%)' : 'translateY(0)',
-        }}
-      />
+      {PANELS.map((p, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 transition-transform duration-[800ms] ease-in-out"
+          style={{
+            ...bg,
+            clipPath: p.clip,
+            transform: stage >= p.delay
+              ? `translateY(${p.slide * 110}%)`
+              : 'translateY(0)',
+          }}
+        />
+      ))}
 
       <div
         className="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 z-10"
