@@ -1,34 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { animate } from 'motion';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from './CartContext';
 
 export const CartButton = () => {
   const { items, toggleCart } = useCart();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const [prevTotal, setPrevTotal] = useState(totalItems);
-  const btnRef = React.useRef<HTMLButtonElement>(null);
+  const prevTotalRef = React.useRef(totalItems);
+  const [shaking, setShaking] = useState(false);
 
   useEffect(() => {
-    if (totalItems > prevTotal && btnRef.current) {
-      animate(
-        btnRef.current,
-        {
-          rotate: [0, -10, 10, -7, 7, -4, 4, 0],
-          scale: [1, 1.12, 1.12, 1.08, 1.08, 1.04, 1.04, 1],
-        },
-        { duration: 0.6, ease: 'easeInOut' }
-      );
+    if (totalItems > prevTotalRef.current) {
+      setShaking(true);
+      const timer = setTimeout(() => setShaking(false), 600);
+      prevTotalRef.current = totalItems;
+      return () => clearTimeout(timer);
     }
-    setPrevTotal(totalItems);
+    prevTotalRef.current = totalItems;
   }, [totalItems]);
 
   return (
     <div className="relative flex items-center">
       <button
-        ref={btnRef}
         onClick={toggleCart}
-        className="p-3 liquid-glass rounded-full hover:scale-[1.03] hover:bg-[#fb9201] transition-all duration-300 cursor-pointer group"
+        className={`p-3 liquid-glass rounded-full hover:scale-[1.03] hover:bg-[#fb9201] transition-all duration-300 cursor-pointer group ${shaking ? 'animate-cart-shake' : ''}`}
       >
         <ShoppingBag className="w-6 h-6 text-foreground group-hover:text-black" />
       </button>
