@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from '../components/Navbar';
 import { CartDrawer } from '../components/Cart';
 import { Footer } from '../components/Footer';
 
 export default function About() {
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [showSecond, setShowSecond] = useState(false);
+
   const navItems = [
     { label: 'Главная', href: '/' },
     { label: 'О нас', href: '/about', isActive: true },
@@ -40,6 +43,41 @@ export default function About() {
       
       <Footer scrollProgress={0} />
       <CartDrawer />
+
+      <button
+        onClick={() => { setOverlayOpen(true); setShowSecond(false); }}
+        className="fixed bottom-8 right-8 z-20 liquid-glass rounded-full w-16 h-16 flex items-center justify-center text-white text-lg hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer"
+        style={{ fontFamily: 'Cakra, sans-serif' }}
+      >
+        Жми
+      </button>
+
+      {overlayOpen && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center"
+          onClick={() => setOverlayOpen(false)}
+        >
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
+          <div className="relative z-10 max-w-[90vw] max-h-[90vh] flex items-center justify-center">
+            <button
+              onClick={(e) => { e.stopPropagation(); setOverlayOpen(false); }}
+              className="absolute -top-12 right-0 p-2 text-white/70 hover:text-white transition-colors cursor-pointer z-20"
+              aria-label="Закрыть"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <img
+              src={showSecond ? '/vremaydally.png' : '/mokosdally.png'}
+              alt="daily"
+              onClick={(e) => { e.stopPropagation(); setShowSecond(true); }}
+              className="max-w-full max-h-[85vh] object-contain rounded-2xl cursor-pointer transition-opacity duration-300"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
