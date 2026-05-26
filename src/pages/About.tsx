@@ -19,18 +19,18 @@ export default function About() {
       </video>
       <Navbar items={navItems} />
       
-      <main className="relative z-10 pt-24 md:pt-32 px-4 flex flex-col items-center flex-1">
+      <main className="relative z-10 pt-24 md:pt-32 px-4 flex flex-col items-center flex-1 pb-20 md:pb-28">
         <h1 className="text-4xl md:text-6xl text-white mb-8 text-center" style={{ fontFamily: 'Cakra, sans-serif' }}>О нас</h1>
         <div className="w-full max-w-4xl space-y-6 text-white/80 text-xl md:text-2xl">
-          <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10">
+          <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-slide-left">
             <p className="text-center md:text-left"><strong className="text-white" style={{ fontFamily: 'Cakra, sans-serif' }}>Мако&#769;шь</strong> — это место, где традиции встречаются с современностью. Мы создаём блюда, которые рассказывают свою историю.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10">
+            <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-slide-left">
               <h2 className="text-xl md:text-2xl text-white mb-3" style={{ fontFamily: 'Cakra, sans-serif' }}>Наша философия</h2>
               <p>Мы верим, что еда — это не просто топливо, а способ выразить заботу и уважение к гостям. Каждое блюдо готовится с любовью и вниманием к деталям.</p>
             </div>
-            <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10">
+            <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-slide-right">
               <h2 className="text-xl md:text-2xl text-white mb-3" style={{ fontFamily: 'Cakra, sans-serif' }}>Наша команда</h2>
               <p>За нашими блюдами стоят профессионалы с многолетним опытом. Мы постоянно учимся и совершенствуемся, чтобы радовать вас новыми вкусами.</p>
             </div>
