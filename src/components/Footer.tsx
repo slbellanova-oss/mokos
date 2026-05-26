@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface FooterProps {
-  scrollProgress: number;
+  scrollProgress?: number;
 }
 
-export const Footer = ({ scrollProgress }: FooterProps) => {
+export const Footer = (_props: FooterProps) => {
   return (
     <footer className="relative z-50 w-full bg-black/60 backdrop-blur-md py-4 px-4 md:px-8 mt-auto text-center md:text-left">
       <div className="w-full flex flex-col md:flex-row justify-between items-center text-white/80 text-sm md:text-base gap-4 md:gap-0">

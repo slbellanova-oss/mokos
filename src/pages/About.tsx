@@ -56,6 +56,7 @@ export default function About() {
       {overlayOpen && (
         <div
           className="fixed inset-0 z-[200] flex items-center justify-center"
+          role="dialog" aria-modal="true" aria-label="Ежедневное изображение"
           onClick={() => setOverlayOpen(false)}
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
@@ -72,7 +73,7 @@ export default function About() {
             </button>
             <img
               src={showSecond ? '/vremaydally.png' : '/mokosdally.png'}
-              alt="daily"
+              alt="Макошь — ежедневное вдохновение"
               onClick={(e) => { e.stopPropagation(); setShowSecond(true); }}
               className="max-w-full max-h-[85vh] object-contain rounded-2xl cursor-pointer transition-opacity duration-300"
             />

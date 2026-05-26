@@ -48,6 +48,7 @@
   --color-accent: var(--accent);
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-brand: #fb9201;
 
   --font-sans: 'Golos Text', 'Verdana', sans-serif;
   --font-menu: 'PT Sans', 'Arial', sans-serif;

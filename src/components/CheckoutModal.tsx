@@ -76,7 +76,6 @@ export const CheckoutModal: React.FC = () => {
           price: item.price,
         })),
       };
-      console.log('Данные заказа:', orderData);
       alert(`Заказ оформлен! ${deliveryType === 'delivery' ? 'Доставка по адресу: ' + address : 'Ожидайте звонка для уточнения адреса самовывоза'}`);
       setAddress('');
       setComment('');

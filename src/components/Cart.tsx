@@ -41,7 +41,7 @@ export const CartDrawer = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100]">
+    <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Корзина">
       <div className="absolute inset-0 bg-black/60" onClick={toggleCart} />
       <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white/5 backdrop-blur-xl p-6 flex flex-col border-l border-white/10">
         <div className="flex items-center justify-between mb-6">
@@ -69,6 +69,7 @@ export const CartDrawer = () => {
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
                       className="p-1 hover:bg-muted rounded cursor-pointer"
+                      aria-label="Уменьшить количество"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
@@ -76,6 +77,7 @@ export const CartDrawer = () => {
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="p-1 hover:bg-muted rounded cursor-pointer"
+                      aria-label="Увеличить количество"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
@@ -84,6 +86,7 @@ export const CartDrawer = () => {
                 <button
                   onClick={() => removeItem(item.id)}
                   className="p-2 hover:bg-muted rounded self-start cursor-pointer"
+                  aria-label="Удалить товар"
                 >
                   <X className="w-4 h-4" />
                 </button>

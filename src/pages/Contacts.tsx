@@ -34,9 +34,9 @@ export default function Contacts() {
           <div>
             <h2 className="text-xl md:text-2xl text-white mb-2" style={{ fontFamily: 'PT Sans, sans-serif' }}>Социальные сети</h2>
             <div className="flex flex-wrap gap-4 mt-2">
-              <a href="#" className="text-white/80 hover:text-white text-base md:text-lg">Instagram</a>
-              <a href="#" className="text-white/80 hover:text-white text-base md:text-lg">Telegram</a>
-              <a href="#" className="text-white/80 hover:text-white text-base md:text-lg">VK</a>
+              <span className="text-white/40 text-base md:text-lg">Instagram</span>
+              <span className="text-white/40 text-base md:text-lg">Telegram</span>
+              <span className="text-white/40 text-base md:text-lg">VK</span>
             </div>
           </div>
         </div>

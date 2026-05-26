@@ -51,6 +51,7 @@ export const CookieConsent = () => {
             <button
               onClick={handleAccept}
               className="liquid-glass rounded-full px-8 py-3 text-white hover:scale-[1.03] transition-transform duration-300 cursor-pointer"
+              aria-label="Принять cookies"
               style={{ fontFamily: 'PT Sans, sans-serif' }}
             >
               Принять

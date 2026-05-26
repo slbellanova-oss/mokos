@@ -65,6 +65,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
               <button 
                 onClick={handleAdd}
                 className="add-btn flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+                aria-label="Добавить в корзину"
                 style={{
                   background: '#fb9201',
                   color: '#000',
@@ -79,6 +80,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                 <button 
                   onClick={() => handleChange(-1)}
                   className="counter-btn flex items-center justify-center rounded-full transition-colors"
+                  aria-label="Уменьшить количество"
                   style={{
                     background: 'rgba(251,146,1,0.2)',
                     color: '#fb9201',
@@ -94,6 +96,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                 <button 
                   onClick={() => handleChange(1)}
                   className="counter-btn flex items-center justify-center rounded-full transition-colors"
+                  aria-label="Увеличить количество"
                   style={{
                     background: '#fb9201',
                     color: '#000',
