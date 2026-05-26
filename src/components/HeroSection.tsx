@@ -1,4 +1,5 @@
 import React from 'react';
+import { PHONE } from '../config';
 
 interface HeroSectionProps {
   scrollProgress: number;
@@ -38,11 +39,11 @@ export const HeroSection = ({ scrollProgress }: HeroSectionProps) => {
         </p>
         
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 pointer-events-auto mt-6 sm:mt-8">
-          <a href="tel:+79001980142" className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap w-full sm:w-auto inline-block text-center">
+          <a href={`tel:${PHONE}`} className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-brand hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap w-full sm:w-auto inline-block text-center">
             Заказать
           </a>
           <button 
-            className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap w-full sm:w-auto"
+            className="animate-fade-rise-delay-2 liquid-glass rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-brand hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap w-full sm:w-auto"
             onClick={() => {
               const el = document.getElementById('nashe-menu');
               if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });

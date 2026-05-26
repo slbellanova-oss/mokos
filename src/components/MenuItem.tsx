@@ -33,7 +33,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
           alt={item.name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 text-base text-[#fb9201] font-medium">
+        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 text-base text-brand font-medium">
           {item.weight}
         </div>
       </div>
@@ -54,8 +54,8 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         
         <div className="flex justify-between items-center mt-auto">
           <span 
-            className="text-xl sm:text-2xl font-bold transition-colors duration-300"
-            style={{ color: quantity > 0 ? '#fb9201' : '#ffffff', fontFamily: 'PT Sans, sans-serif' }}
+            className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${quantity > 0 ? 'text-brand' : 'text-white'}`}
+            style={{ fontFamily: 'PT Sans, sans-serif' }}
           >
             {quantity > 0 ? `${item.price * quantity}₽` : `${item.price}₽`}
           </span>
@@ -64,14 +64,9 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
             {quantity === 0 ? (
               <button 
                 onClick={handleAdd}
-                className="add-btn flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+                className="add-btn flex items-center justify-center rounded-full bg-brand text-black transition-all duration-300 hover:scale-110 active:scale-95"
                 aria-label="Добавить в корзину"
-                style={{
-                  background: '#fb9201',
-                  color: '#000',
-                  width: 44,
-                  height: 44,
-                }}
+                style={{ width: 44, height: 44 }}
               >
                 <Plus className="w-6 h-6" />
               </button>
@@ -79,30 +74,20 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
               <div className="counter-block flex items-center gap-2">
                 <button 
                   onClick={() => handleChange(-1)}
-                  className="counter-btn flex items-center justify-center rounded-full transition-colors"
+                  className="counter-btn flex items-center justify-center rounded-full bg-brand/20 text-brand transition-colors"
                   aria-label="Уменьшить количество"
-                  style={{
-                    background: 'rgba(251,146,1,0.2)',
-                    color: '#fb9201',
-                    width: 44,
-                    height: 44,
-                  }}
+                  style={{ width: 44, height: 44 }}
                 >
                   <Minus className="w-5 h-5" />
                 </button>
-                <span className="counter-value text-center font-bold text-lg text-[#fb9201] min-w-[32px]">
+                <span className="counter-value text-center font-bold text-lg text-brand min-w-[32px]">
                   {quantity}
                 </span>
                 <button 
                   onClick={() => handleChange(1)}
-                  className="counter-btn flex items-center justify-center rounded-full transition-colors"
+                  className="counter-btn flex items-center justify-center rounded-full bg-brand text-black transition-colors"
                   aria-label="Увеличить количество"
-                  style={{
-                    background: '#fb9201',
-                    color: '#000',
-                    width: 44,
-                    height: 44,
-                  }}
+                  style={{ width: 44, height: 44 }}
                 >
                   <Plus className="w-5 h-5" />
                 </button>

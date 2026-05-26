@@ -143,7 +143,7 @@ export default function Menu({ hideHeader = false }: { hideHeader?: boolean }) {
                     onClick={() => scrollToSection(cat.id)}
                     className={`whitespace-nowrap text-left text-base lg:text-lg py-3 px-4 lg:px-6 transition-all duration-300 rounded-full border border-white/10 flex-shrink-0 ${
                       activeTab === cat.id
-                        ? 'bg-[#fb9201]/80 text-black shadow-lg'
+                        ? 'bg-brand/80 text-black shadow-lg'
                         : 'bg-black/40 backdrop-blur-md text-white hover:bg-white/10'
                     }`}
                     style={{ fontFamily: 'PT Sans, sans-serif' }}

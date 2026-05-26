@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from '../components/Navbar';
 import { CartDrawer } from '../components/Cart';
 import { Footer } from '../components/Footer';
+import { PHONE, ADDRESS, WORK_HOURS } from '../config';
 
 export default function Contacts() {
   const navItems = [
@@ -25,15 +26,15 @@ export default function Contacts() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white/80 text-lg">
           <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-fade-rise">
             <h2 className="text-xl md:text-2xl text-white mb-3" style={{ fontFamily: 'Cakra, sans-serif' }}>Адрес</h2>
-            <p>Свердловская область, Сысертский район, коттеджный пос. Заповедник, пос. Габиевский, ул. Центральная 8</p>
+            <p>{ADDRESS}</p>
           </div>
           <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-fade-rise-delay">
             <h2 className="text-xl md:text-2xl text-white mb-3" style={{ fontFamily: 'Cakra, sans-serif' }}>Телефон</h2>
-            <a href="tel:+79001980142" className="text-[#fb9201] hover:underline">+79001980142</a>
+            <a href={`tel:${PHONE}`} className="text-brand hover:underline">{PHONE}</a>
           </div>
           <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-fade-rise-delay-2">
             <h2 className="text-xl md:text-2xl text-white mb-3" style={{ fontFamily: 'Cakra, sans-serif' }}>Время работы</h2>
-            <p>Ежедневно с 12:00 до 21:00</p>
+            <p>{WORK_HOURS}</p>
           </div>
           <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-fade-rise-delay-2">
             <h2 className="text-xl md:text-2xl text-white mb-3" style={{ fontFamily: 'Cakra, sans-serif' }}>Социальные сети</h2>
@@ -48,7 +49,7 @@ export default function Contacts() {
         <div className="mt-6 bg-black/40 backdrop-blur-lg rounded-2xl border border-white/10 overflow-hidden animate-fade-rise">
           <iframe
             title="Карта"
-            src="https://www.google.com/maps?q=%D0%A1%D0%B2%D0%B5%D1%80%D0%B4%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB,+%D0%A1%D1%8B%D1%81%D0%B5%D1%80%D1%82%D1%81%D0%BA%D0%B8%D0%B9+%D1%80-%D0%BD,+%D0%BA%D0%BE%D1%82%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D1%8B%D0%B9+%D0%BF%D0%BE%D1%81.+%D0%97%D0%B0%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA,+%D1%83%D0%BB.+%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F+8&output=embed"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`}
             width="100%"
             height="300"
             style={{ border: 0 }}

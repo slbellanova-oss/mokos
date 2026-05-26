@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Navbar } from '../components/Navbar';
 import { CartDrawer } from '../components/Cart';
 import { Footer } from '../components/Footer';
+import { useFocusTrap } from '../hooks/useFocusTrap';
 
 export default function About() {
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [showSecond, setShowSecond] = useState(false);
+  const focusTrapRef = useFocusTrap(overlayOpen);
 
   const navItems = [
     { label: 'Главная', href: '/' },
@@ -42,7 +44,7 @@ export default function About() {
         <div className="w-full max-w-4xl flex justify-end mt-auto pt-6">
           <button
             onClick={() => { setOverlayOpen(true); setShowSecond(false); }}
-            className="animate-fade-rise-delay-2 bg-white/5 backdrop-blur-xl rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-[#fb9201] hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap border border-white/10 shadow-lg"
+            className="animate-fade-rise-delay-2 bg-white/5 backdrop-blur-xl rounded-full px-8 sm:px-14 py-4 sm:py-5 text-base sm:text-lg text-foreground hover:scale-[1.03] hover:bg-brand hover:text-black transition-all duration-300 cursor-pointer whitespace-nowrap border border-white/10 shadow-lg"
             style={{ fontFamily: 'Cakra, sans-serif' }}
           >
             Жми
@@ -55,6 +57,7 @@ export default function About() {
 
       {overlayOpen && (
         <div
+          ref={focusTrapRef}
           className="fixed inset-0 z-[200] flex items-center justify-center"
           role="dialog" aria-modal="true" aria-label="Ежедневное изображение"
           onClick={() => setOverlayOpen(false)}

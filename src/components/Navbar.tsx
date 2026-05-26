@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CartButton } from './Cart';
+import { PHONE } from '../config';
 
 interface NavItem {
   label: string;
@@ -34,15 +35,15 @@ export const Navbar: React.FC<NavbarProps> = ({ items }) => {
               }`}
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#fb9201] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
 
         <div className="flex items-center gap-4">
           <a
-            href="tel:+79001980142"
-            className="p-3 liquid-glass rounded-full hover:scale-[1.03] hover:bg-[#fb9201] transition-all duration-300 cursor-pointer group"
+            href={`tel:${PHONE}`}
+            className="p-3 liquid-glass rounded-full hover:scale-[1.03] hover:bg-brand transition-all duration-300 cursor-pointer group"
             aria-label="Позвонить"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-foreground group-hover:text-black">
