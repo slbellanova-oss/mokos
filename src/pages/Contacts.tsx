@@ -39,9 +39,18 @@ export default function Contacts() {
           <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 animate-fade-rise-delay-2">
             <h2 className="text-xl md:text-2xl text-white mb-3" style={{ fontFamily: 'Cakra, sans-serif' }}>Социальные сети</h2>
             <div className="flex flex-wrap gap-4 mt-2">
-              <span className="text-white/60">Instagram</span>
-              <span className="text-white/60">Telegram</span>
-              <span className="text-white/60">VK</span>
+              <a href="https://max.ru/join/AkeAPHiS1P_quKiQSc1gaunkAKnwIz_yIeKmH5lvFRc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black/40 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/10 text-white/80 hover:text-brand hover:border-brand/50 transition-all duration-300" aria-label="Max">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Max
+              </a>
+              <a href="https://t.me/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black/40 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/10 text-white/80 hover:text-brand hover:border-brand/50 transition-all duration-300" aria-label="Telegram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Telegram
+              </a>
+              <a href="https://vk.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black/40 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/10 text-white/80 hover:text-brand hover:border-brand/50 transition-all duration-300" aria-label="VK">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M7 9h2l1 5 2-5h2l1 5 1-5h2"/></svg>
+                VK
+              </a>
             </div>
           </div>
         </div>
