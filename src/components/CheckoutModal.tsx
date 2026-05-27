@@ -66,19 +66,6 @@ export const CheckoutModal: React.FC = () => {
     }
 
     if (valid) {
-      const orderData = {
-        phone: phone,
-        deliveryType: deliveryType,
-        address: deliveryType === 'delivery' ? address : 'Самовывоз',
-        comment: comment,
-        termsAgreed: termsAccepted,
-        privacyAgreed: privacyAccepted,
-        items: items.map(item => ({
-          name: item.name,
-          qty: item.quantity,
-          price: item.price,
-        })),
-      };
       alert(`Заказ оформлен! ${deliveryType === 'delivery' ? 'Доставка по адресу: ' + address : 'Ожидайте звонка для уточнения адреса самовывоза'}`);
       setAddress('');
       setComment('');
@@ -110,16 +97,16 @@ export const CheckoutModal: React.FC = () => {
 
               <div className="flex gap-2">
                 <button onClick={() => setDeliveryType('delivery')} className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg transition-all ${deliveryType === 'delivery' ? 'bg-brand text-black' : 'border border-brand/30 text-white bg-transparent'}`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"/><polygon points="6 9 12 3 18 9 10 9"/><path d="M9 14v4h6v-4"/><path d="M12 3v18"/></svg>Доставка
+                  <Truck className="w-5 h-5" />Доставка
                 </button>
                 <button onClick={() => setDeliveryType('pickup')} className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg transition-all ${deliveryType === 'pickup' ? 'bg-brand text-black' : 'border border-brand/30 text-white bg-transparent'}`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h16a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1Z"/><path d="M3 10V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4"/><path d="M12 10v10"/><path d="M7 10V6"/><path d="M17 10V6"/></svg>Самовывоз
+                  <Store className="w-5 h-5" />Самовывоз
                 </button>
               </div>
 
               {deliveryType === 'delivery' && (
                 <div>
-                  <label className="flex items-center gap-2 text-sm mb-2 text-[hsl(240,4%,66%)]"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Адрес доставки</label>
+                  <label className="flex items-center gap-2 text-sm mb-2 text-[hsl(240,4%,66%)]"><MapPin className="w-4 h-4" />Адрес доставки</label>
                   <input type="text" value={address} onChange={(e) => { setAddress(e.target.value); setAddressError(''); }} placeholder="ул. Примерная, д. 1, кв. 1" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-[hsl(240,4%,66%)]/50 focus:border-brand focus:outline-none transition-colors" />
                   {addressError && <p className="text-red-500 text-xs mt-1">{addressError}</p>}
                 </div>
