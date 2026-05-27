@@ -5,11 +5,7 @@ export const CookieConsent = () => {
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
-    if (!consent) {
-      if (!document.querySelector('[data-cookie-banner]')) {
-        setVisible(true);
-      }
-    }
+    if (!consent) setVisible(true);
   }, []);
 
   const handleAccept = () => {
