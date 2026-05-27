@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './pages/Menu';
 import Contacts from './pages/Contacts';
+import { CookieConsent } from './components/CookieConsent';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -18,6 +19,7 @@ function Root() {
     <>
       <ScrollToTop />
       <Outlet />
+      <CookieConsent />
     </>
   );
 }
