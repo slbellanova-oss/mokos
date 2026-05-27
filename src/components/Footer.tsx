@@ -33,7 +33,7 @@ export const Footer = (_props: FooterProps) => {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-white/80 group-hover:text-black"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
         </a>
         <a href="https://vk.me/id1111264153" target="_blank" rel="noopener noreferrer" className="p-3 liquid-glass rounded-full hover:scale-[1.03] hover:bg-brand transition-all duration-300 cursor-pointer group" aria-label="VK">
-          <img src="/vk.png" alt="VK" className="w-5 h-5" />
+          <img src="/vk.png" alt="VK" className="w-7 h-7" />
         </a>
       </div>
     </footer>
