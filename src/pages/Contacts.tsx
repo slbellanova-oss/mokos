@@ -48,7 +48,7 @@ export default function Contacts() {
                 Telegram
               </a>
               <a href="https://vk.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black/40 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/10 text-white/80 hover:text-brand hover:border-brand/50 transition-all duration-300" aria-label="VK">
-                <img src="/vk.png" alt="VK" className="w-5 h-5" />
+                <img src="/vk.png" alt="VK" className="w-8 h-8" />
                 VK
               </a>
             </div>
